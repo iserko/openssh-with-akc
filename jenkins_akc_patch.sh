@@ -20,6 +20,11 @@ renamepackage() {
   sed -i "/Package: *${to} *$/,/^$/s/Replaces:.*/&, ${from}/" debian/control
   sed -i "/Package: *${to} *$/,/^$/s/Provides:.*/&, ${from}/" debian/control
 }
+
+if [ -z "$(which schroot)" ]; then
+    echo "ERROR: Install schroot in order to run the script"
+    exit 1
+fi
  
 # add source-repository and install all necessary packages
 schroot -c ${distro}_${arch} -u root -d / -- sed -i '/^deb-src/d;/^deb /{p;s/^deb/deb-src/}' /etc/apt/sources.list
