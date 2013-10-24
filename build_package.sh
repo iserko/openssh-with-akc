@@ -25,7 +25,7 @@ apt-get source openssh-server
  
 cp ../openssh-5.9p1.ubuntu.ack.patch ./openssh-akc.patch
 # go to the downloaded and extracted directory
-cd openssh-5.9p1
+pushd openssh-5.9p1
  
 # add the new patch to the build using quilt
 quilt push -a || true
@@ -60,6 +60,7 @@ debchange -i "apply akc patch"
 # rebuild debian packages
 debuild -us -uc -i -I
 
+popd
 mv openssh-akc-server_*.deb ..
 popd
 rm -rf $BUILDDIR
