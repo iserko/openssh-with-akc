@@ -1,3 +1,4 @@
+#!/bin/bash
 # download the sources of openssh-server - not with sudo
 apt-get source openssh-server
  
