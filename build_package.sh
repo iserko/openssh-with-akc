@@ -1,5 +1,20 @@
 #!/bin/bash
 set -ex
+
+renamepackage() {
+  from=$1
+  to=$2
+  for file in $(find debian -name "*${from}*"); do
+    mv ${file} ${file//${from}/${to}}
+  done
+  for file in $(find debian -exec grep -l ${from} {} ';'); do
+    sed -i "s/${from}/${to}/g" ${file}
+  done
+  sed -i "/Package: *${to} *$/,/^$/s/Conflicts:.*/&, ${from}/" debian/control
+  sed -i "/Package: *${to} *$/,/^$/s/Replaces:.*/&, ${from}/" debian/control
+  sed -i "/Package: *${to} *$/,/^$/s/Provides:.*/&, ${from}/" debian/control
+}
+
 BUILDDIR=$(mktemp -d --tmpdir=/var/tmp)
 pushd $BUILDDIR
 
