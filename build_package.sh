@@ -58,4 +58,6 @@ debchange -i "apply akc patch"
 # rebuild debian packages
 debuild -us -uc -i -I
 
+mv openssh-akc-server*.*deb ..
 popd
+rm -rf $BUILDDIR
