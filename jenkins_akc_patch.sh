@@ -1,5 +1,5 @@
-#!/bin/bash -ex
-
+#!/bin/bash
+set -ex
 # taken from https://marc.xn--wckerlin-0za.ch/computer/blog/ssh_and_ldap
 # original author marc@waeckerlin.org
 # with some modifications by igor.serko@gmail.com
