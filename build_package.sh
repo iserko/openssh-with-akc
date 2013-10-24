@@ -1,10 +1,10 @@
 #!/bin/bash
 set -ex
+BUILDDIR=$(mktemp -d --tmpdir=/var/tmp)
+pushd $BUILDDIR
 # download the sources of openssh-server - not with sudo
 apt-get source openssh-server
  
-BUILDDIR=$(mktemp -d --tmpdir=/var/tmp)
-pushd $BUILDDIR
 # download the akc patch file
 curl -o openssh-akc.patch --no-check-certificate 'https://marc.xn--wckerlin-0za.ch/_media/computer/blog/openssh-5.9p1.ubuntu.ack.patch'
  
