@@ -36,7 +36,7 @@ schroot -c ${distro}_${arch} -u root -d / -- apt-get -y --force-yes build-dep op
 apt-get source openssh-server
  
 # download the akc patch file
-wget -O openssh-akc.patch 'http://marc.wäckerlin.ch/_media/computer/blog/openssh-5.9p1.ubuntu.ack.patch'
+wget -O openssh-akc.patch --no-check-certificate 'https://marc.wäckerlin.ch/_media/computer/blog/openssh-5.9p1.ubuntu.ack.patch'
  
 # go to the downloaded and extracted directory
 cd openssh-5.9p1
