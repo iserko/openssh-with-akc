@@ -32,4 +32,4 @@ schroot -c ${distro}_${arch} -u root -d / -- apt-get update
 schroot -c ${distro}_${arch} -u root -d / -- apt-get -y --force-yes install quilt devscripts
 schroot -c ${distro}_${arch} -u root -d / -- apt-get -y --force-yes build-dep openssh-server
 cp build_package.sh /opt/chroots/precise_amd64/var/tmp
-schroot -c ${distro}_${arch} -d /var/tmp -- ./build_package.sh
+schroot -c ${distro}_${arch} -d /var/tmp -- /var/tmp/build_package.sh
