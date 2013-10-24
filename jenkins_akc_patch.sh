@@ -6,7 +6,6 @@ set -ex
  
 export EMAIL=marc@waeckerlin.org
 export NAME="Marc Wäckerlin"
- 
 
 if [ -z "$(which schroot)" ]; then
     echo "ERROR: Install schroot in order to run the script"

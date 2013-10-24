@@ -1,5 +1,7 @@
 #!/bin/bash
 set -ex
+export EMAIL=marc@waeckerlin.org
+export NAME="Marc Wäckerlin"
 
 renamepackage() {
   from=$1
